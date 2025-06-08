@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Edit Chat</title>
+</head>
+<body style="font-family: Arial, sans-serif; background-color: #f4f4f4; padding: 30px;">
+
+  <div style="max-width: 500px; margin: auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 0 8px rgba(0,0,0,0.1);">
+    <h3 style="text-align: center; color: #333;">✏️ Edit Chat</h3>
+
+    <form method="POST" action="/chats/<%= chat._id %>">
+      <label for="from" style="display: none;">Sender</label>
+      <input 
+        id="from"
+        name="from" 
+        value="<%= chat.from %>" 
+        placeholder="Sender"
+        autocomplete="off"
+        required
+        style="width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 5px;"
+      >
+
+      <label for="to" style="display: none;">Receiver</label>
+      <input 
+        id="to"
+        name="to" 
+        value="<%= chat.to %>" 
+        placeholder="Receiver"
+        autocomplete="off"
+        required
+        style="width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 5px;"
+      >
+
+      <label for="message" style="display: none;">Message</label>
+      <textarea 
+        id="message"
+        name="message" 
+        required
+        style="width: 100%; height: 100px; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px;"
+      ><%= chat.message %></textarea>
+
+      <button 
+        type="submit" 
+        style="padding: 10px 15px; background-color: #28a745; color: white; border: none; border-radius: 5px; cursor: pointer;"
+      >💾 Update Chat</button>
+
+      <a 
+        href="/chats" 
+        style="display: inline-block; margin-left: 10px; padding: 10px 15px; background-color: #dc3545; color: white; text-decoration: none; border-radius: 5px;"
+      >❌ Cancel</a>
+    </form>
+  </div>
+
+</body>
+</html>
